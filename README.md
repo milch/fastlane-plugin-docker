@@ -16,7 +16,9 @@ Actions to support building images, logging into Docker Hub, and pushing those i
 
 ## Example
 
-Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
+Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, setting your Docker Hub username and password as environment variables by running `export DOCKER_LOGIN_USER="<your user name>"` and `export DOCKER_LOGIN_PASSWORD="<your password>"`, running `fastlane install_plugins` and `bundle exec fastlane test`. 
+
+Attention: If you don't change the example Fastfile at all, a new repository with `<your username>/test` will be pushed to Docker Hub!
 
 ## Run tests for this plugin
 
