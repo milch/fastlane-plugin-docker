@@ -1,0 +1,14 @@
+lane :test do
+  ensure_docker_machine_available(
+    machine_name: "fastlane-docker-plugin-test"
+  )
+
+  docker_login
+
+  docker_build(
+    repository: "#{ENV['DOCKER_LOGIN_USER']}/test",
+    tag: "0.1"
+  )
+
+  docker_push
+end
