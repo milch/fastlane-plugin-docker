@@ -16,7 +16,30 @@ Actions to support building images, logging into Docker Hub, and pushing those i
 
 ## Example
 
-Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, setting your Docker Hub username and password as environment variables by running `export DOCKER_LOGIN_USER="<your user name>"` and `export DOCKER_LOGIN_PASSWORD="<your password>"`, running `fastlane install_plugins` and `bundle exec fastlane test`. 
+Here is some sample code to get you started:
+
+```ruby
+
+lane :release_docker_image do
+  ensure_docker_machine_available(
+    machine_name: "docker-build-machine"
+  )
+
+  docker_login
+
+  docker_build(
+    repository: "example-org/server",
+    tag: "1.2.0"
+  )
+
+  docker_push
+end
+
+```
+
+This will start using a docker machine (creating it if it doesn't exist yet), login to docker hub, build and tag a new docker image and push that image to Docker Hub. 
+
+Alternatively, check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, setting your Docker Hub username and password as environment variables by running `export DOCKER_LOGIN_USER="<your user name>"` and `export DOCKER_LOGIN_PASSWORD="<your password>"`, running `fastlane install_plugins` and `bundle exec fastlane test`. 
 
 Attention: If you don't change the example Fastfile at all, a new repository with `<your username>/test` will be pushed to Docker Hub!
 
