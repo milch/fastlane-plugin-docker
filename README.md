@@ -35,6 +35,18 @@ lane :release_docker_image do
   docker_push
 end
 
+lane :update_compose_deployment do
+  ensure_docker_machine_available(
+    machine_name: "docker-build-machine"
+  )
+  docker_compose(
+    command: "pull"
+  )
+  docker_compose(
+    command: "up"
+  )
+end
+
 ```
 
 This will start using a docker machine (creating it if it doesn't exist yet), login to docker hub, build and tag a new docker image and push that image to Docker Hub. 
