@@ -28,7 +28,7 @@ SCRIPT
         Actions.sh "docker-machine create -d virtualbox #{name.shellescape} 1> /dev/null"
       end
 
-      def configure_env(machine_name) 
+      def configure_env(machine_name)
         instructions = (Actions.sh "docker-machine env #{machine_name} --shell sh").lines
         instructions.map!(&:strip).select! { |i| i =~ /^export/ }
         instructions.each do |i|

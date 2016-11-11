@@ -1,4 +1,11 @@
-# os: osx # enable this if you need macOS support
 language: ruby
 rvm:
-  - 2.2.4
+- 2.2.4
+deploy:
+  provider: rubygems
+  api_key:
+    secure: SDydj/7h9Q7rrwZ6jp4noFWQTa7aD5KWuPtq8LhJ9wSa8xsx6dT9rWcpz/xNSYvnAb6s2CO0rbY0evL0P00gZHUf8rLBEy8ymZTWu/S4/5bIG5cjdY76yVTaiHArHU6dwJ1VpkItmujpl9ORBkMuKp8lHa7WzwqWP1ej6AdyZKAw2Wj+XSKNdJBSkzMn+hV0rInfDPqOXN8Afmo5DSH2RCSgV7SpxHtqCAme4+8pIGzb6N9ckrHB06Wyp7hZwPphtXewb6jtFjp0YgrXV/NlWB3acTtRxb+Qq+OSd799MGhDBGzPUs6mBfGZTPsd7HUo9Nx9DIK8fw7n4A6oRNcPyVV4kdTIqvA9tlJ6ke+BtMFIsGQ9SN0PDplIIT629hus88RHHAvUz8HZEedkhsLJSUY+iNc1EKsIi2oAGuKdaAcUMEgHPCLcbx7GraV90X28y0zewX8QgEtfTvKtm7LyYz0ttKJ1WTH9v2ISvLHtFZmDZIgR9/BH3h+FMLw+lGrD1FeGVx0l1pUs5UNGV7bovNESwzC7LGARv18zGacbBL9Lo5t8RC5s5HzA0SDKCvluHxEWNcvAH9FVDTtsBQ9PpHkpB8udnfmd9X2TVspZhFPMKgokMaCpkwFwfJ09SHMZOrcPc8h1PUbyRRyTehYTwr2QuaGfg6FnCRWh2UHtokM=
+  gem: fastlane-plugin-docker
+  on:
+    branch: master
+    repo: milch/fastlane-plugin-docker

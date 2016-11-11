@@ -6,10 +6,11 @@ require 'fastlane/plugin/docker/version'
 Gem::Specification.new do |spec|
   spec.name          = 'fastlane-plugin-docker'
   spec.version       = Fastlane::Docker::VERSION
-  spec.author        = %q{Manu Wallner}
-  spec.email         = %q{manu@supermil.ch}
+  spec.version       = "#{spec.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
+  spec.author        = 'Manu Wallner'
+  spec.email         = 'manu@supermil.ch'
 
-  spec.summary       = %q{fastlane Actions to support building images, logging into Docker Hub, and pushing those images to the Hub}
+  spec.summary       = 'fastlane Actions to support building images, logging into Docker Hub, and pushing those images to the Hub'
   spec.homepage      = "https://github.com/milch/fastlane-plugin-docker"
   spec.license       = "MIT"
 
