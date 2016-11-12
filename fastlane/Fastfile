@@ -3,7 +3,6 @@ lane :test_compose do
     machine_name: "fastlane-docker-plugin-test"
   )
   docker_compose(
-    #		files: [ "docker-compose.yml", "docker-compose1.yml" ],
     command: "pull"
   )
   docker_compose(
