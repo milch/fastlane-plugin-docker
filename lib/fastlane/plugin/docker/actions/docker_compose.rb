@@ -2,17 +2,15 @@ module Fastlane
   module Actions
     class DockerComposeAction < Action
       def self.run(params)
-        UI.message "running docker-compose ..."
-
         unless `which docker-compose`.include?("docker-compose")
-          UI.error("docker-compose is not found")
+          UI.error("docker-compose was not found")
           UI.error("please read the following https://docs.docker.com/compose/install/ on how to install it.")
           UI.user_error!("docker-compose not installed")
         end
 
         command = "docker-compose "
         command << params[:files].map { |item| " -f " + item }.join + " " if params[:files]
-        command << "--project-name='{params[:project].shellescape}' " if params[:project]
+        command << "--project-name {params[:project].shellescape} " if params[:project]
         command << params[:command]
         command << " -d " if params[:command] == "up" && params[:detach]
 
@@ -20,7 +18,7 @@ module Fastlane
       end
 
       def self.description
-        "Build docker images in the current directory"
+        "Define and run multi-container applications with Docker"
       end
 
       def self.available_options
