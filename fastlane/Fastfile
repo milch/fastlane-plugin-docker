@@ -1,3 +1,15 @@
+lane :test_compose do
+  ensure_docker_machine_available(
+    machine_name: "fastlane-docker-plugin-test"
+  )
+  docker_compose(
+    command: "pull"
+  )
+  docker_compose(
+    command: "up"
+  )
+end
+
 lane :test do
   ensure_docker_machine_available(
     machine_name: "fastlane-docker-plugin-test"
