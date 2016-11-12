@@ -36,11 +36,7 @@ lane :release_docker_image do
 end
 
 ```
-
 This will start using a docker machine (creating it if it doesn't exist yet), login to docker hub, build and tag a new docker image and push that image to Docker Hub. 
-
-
-
 
 ```ruby
 lane :update_compose_deployment do
@@ -57,6 +53,7 @@ end
 
 ```
 
+This will start using a docker machine (creating it if it doesn't exist yet), pull all images from `docker-compose.yml` and bring them up.
 
 Alternatively, check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, setting your Docker Hub username and password as environment variables by running `export DOCKER_LOGIN_USER="<your user name>"` and `export DOCKER_LOGIN_PASSWORD="<your password>"`, running `fastlane install_plugins` and `bundle exec fastlane test`. 
 
