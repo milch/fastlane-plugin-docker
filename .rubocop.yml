@@ -175,6 +175,9 @@ AllCops:
   Exclude:
     - '**/lib/assets/custom_action_template.rb'
     - './vendor/**/*'
+    - 'Rakefile'
+    - 'Gemfile'
+    - '*.gemspec'
 
 # We're not there yet
 Style/Documentation:
