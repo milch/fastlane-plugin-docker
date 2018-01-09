@@ -9,10 +9,13 @@ module Fastlane
       end
 
       def login(username, password, email: nil)
-        cmd = "docker login --username=\"#{username}\" --password=\"#{password}\""
+        require 'open3'
+        require 'shellwords'
+
+        cmd = %W[docker login --username #{username} --password-stdin]
         cmd << "--email=\"#{email}\"" unless email.nil?
 
-        Actions.sh cmd
+        Open3.capture2("cat - | " + cmd.shelljoin, stdin_data: password)
       end
 
       def push(repository, tag: nil)
